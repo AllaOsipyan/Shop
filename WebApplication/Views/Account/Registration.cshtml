@@ -1,0 +1,28 @@
+﻿
+@model WebApplication.ViewModels.RegisterModel
+<h2>Регистрация нового пользователя</h2>
+<form method="post">
+    <div>
+        <label>Введите имя пользователя</label><br />
+        <input  type="text" name="userName" required/>
+        @Html.ValidationMessageFor(model => model.userName)
+    </div>
+    <div>
+        <label>Введиет пароль</label><br />
+        <input  type="password" name="password" required/>
+        @Html.ValidationMessageFor(model => model.password)
+    </div>
+    <div>
+        <label asp-for="PasswordConfirm">Повторите пароль</label><br />
+        <input  type="password" name="checkPassword" required/>
+        @Html.ValidationMessageFor(model => model.checkPassword)
+    </div>
+    <div>
+        <label>Введите Email</label><br />
+        <input  type="text" name="email" required/>
+        @Html.ValidationMessageFor(model => model.email)
+    </div>
+    <div>
+        <input type="submit" value="Регистрация" />
+    </div>
+</form>
