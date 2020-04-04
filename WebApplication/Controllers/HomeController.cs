@@ -6,15 +6,20 @@ namespace WebApplication.Controllers
     public class HomeController: Controller
 
     {
-        public IActionResult MainPage()
+     /*   public IActionResult MainPage()
         {
             return View();
-        }
-        [Authorize]
+        } 
+        */
+      
         public IActionResult Index()
         {
-            
-            return Content(User.Identity.Name);
+            if(HttpContext.User.Identity.IsAuthenticated)
+                return View("MainPage");
+            else
+            {
+                return View("~/Views/Account/Login.cshtml");
+            }
         }
     }
 }

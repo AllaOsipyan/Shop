@@ -1,13 +1,18 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace WebApplication.Controllers
 {
     public class FirstPageController : Controller
     {
         
-        public IActionResult MPage()
+        public async Task<IActionResult> MPage()
         {
-            return RedirectToAction("Login","Account" );
+           await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+           return RedirectToAction("Login","Account" );
         }
 
     }
