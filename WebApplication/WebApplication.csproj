@@ -9,16 +9,19 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Content" />
-    </ItemGroup>
-
-    <ItemGroup>
       <None Include="Views\Shared\_Layout.cshtml" />
     </ItemGroup>
 
     <ItemGroup>
       <PackageReference Include="NLog" Version="4.7.0" />
       <PackageReference Include="NLog.Config" Version="4.7.0" />
+      <PackageReference Include="System.Data.SQLite.Core" Version="1.0.112" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Reference Include="System.Data.SQLite">
+        <HintPath>bin\Debug\sql\System.Data.SQLite.dll</HintPath>
+      </Reference>
     </ItemGroup>
 
 </Project>

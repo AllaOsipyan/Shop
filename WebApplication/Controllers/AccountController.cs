@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using NLog;
+using Shop_DB;
 using WebApplication.Models;
 using WebApplication.ViewModels;
 
@@ -19,15 +20,11 @@ namespace WebApplication.Controllers
 {
     public class AccountController: Controller
     {
-        /* public static Dictionary<string, string> users = new Dictionary<string, string>()
-         {
-             ["Anna"]= "1234",
-             ["Bob"] = "5678"
-         };*/
+        
 
         private string getLogInfo(HttpContext httpContext)
         {
-            return ":" + httpContext.Connection.RemoteIpAddress.MapToIPv4().ToString() + "| user-agent: " + Request.Headers["User-Agent"].ToString() + " | user name:";
+            return "ip-" + httpContext.Connection.RemoteIpAddress.MapToIPv4().ToString() + "| user-agent: " + Request.Headers["User-Agent"].ToString() + " | user name:";
         }
 
         [HttpGet]
@@ -43,7 +40,7 @@ namespace WebApplication.Controllers
             Client currUser = null;
             string existingPassword = null;
 
-
+            
             if (!ModelState.IsValid)
             {
                 logger.Info(getLogInfo(HttpContext) + model.userName + ": Не все поля были заполнены");
@@ -53,8 +50,8 @@ namespace WebApplication.Controllers
                 currUser = Client.getUserByLogin(model.userName);
                 existingPassword = currUser != null ? currUser.password : null;
 
-
-                if (currUser == null)
+                HomeController.dbConn.m_dbConn.Open();
+                if (HomeController.dbConn.UserIsNotCreated(model.userName))
                 {
                     ViewBag.Error = "Пользователь не найден.";
                     logger.Info(getLogInfo(HttpContext) + model.userName+": Пользователь не найден");
@@ -77,6 +74,7 @@ namespace WebApplication.Controllers
                     return RedirectToAction("Index", "Home");
 
                 }
+                HomeController.dbConn.m_dbConn.Close();
             }
 
             return View();
@@ -103,14 +101,16 @@ namespace WebApplication.Controllers
                 
             else
             {
-                Client currUser = Client.getUserByLogin(model.userName);
-                if (currUser != null)
+                HomeController.dbConn.m_dbConn.Open();
+                if (!HomeController.dbConn.UserIsNotCreated(model.userName))
                 {
                     ViewBag.Error = "Пользователь с этим именем уже существует.";
                     logger.Info(getLogInfo(HttpContext) + model.userName + ": Пользователь с этим именем уже существует.");
                 }
                 else
                 {
+                    HomeController.dbConn.CreateUser(model.userName, model.password, model.email);
+                    
                     Client.users.Add(new Client(model.userName, model.password, model.email));
                     var userIdentity = new ClaimsIdentity(new List<Claim>
                     {
@@ -123,6 +123,7 @@ namespace WebApplication.Controllers
                     return RedirectToAction("Index", "Home");
 
                 }
+                HomeController.dbConn.m_dbConn.Close();
             }
 
             return View();
