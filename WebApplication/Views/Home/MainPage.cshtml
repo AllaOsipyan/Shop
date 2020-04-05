@@ -1,5 +1,152 @@
-﻿<div> Hello World! </div>
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+﻿
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="~/Content/main_pageJS.js"></script>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/main_page.css")" />
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+</head>
 
-@using (Html.BeginForm("MPage", "FirstPage")){
-<button method="post" >Выход</button>}
+<body>
+    <nav>
+        <ul class="menu-main">
+            <li><a href="" class="current">Главная страница</a></li>
+            <li><a href="">Акции</a></li>
+            <li><a href="">Корзина</a></li>
+            <li> <img src="~/Pictures/search_black.png" /></li>
+            <div class="exit">
+
+                @Html.ActionLink("Выход", "MPage", "FirstPage")
+            </div>
+        </ul>
+
+    </nav>
+    <div style="border-bottom:solid 2px chocolate;  margin: 100px 0 -70px">
+        <div class="sliderbuttons">
+            <a class="butt" id="slide-nav" style="font-weight:700" >Женщинам</a>
+            <a class="butt" id="slide-nav">Мужчинам</a>
+
+        </div>
+    </div>
+    <div class="context" id="cont">
+      
+        <div class="slide">
+            <div class="item">
+                <div>
+                    <div class="frame">
+                        <div class="text">
+                            <a class="main_text" href="">Платья</a>
+                            <div class="second_text"></div>
+                        </div>
+                        <img class="picture" style=" margin: -42px 40px;" src="~/Pictures/dress.jpg" />
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+
+                <div class="info">
+                    <div class="text">
+                        <a class="main_text" href="">Костюмы</a>
+                        <div class="second_text"></div>
+                    </div>
+                </div>
+                <div class="back_pic" style="background: darkred">
+                    <img class="picture" style="margin: 37px 40px" src="~/Pictures/kost.jpg" />
+                </div>
+
+            </div>
+            <div class="item">
+                <div>
+                    <div class="frame">
+                        <div class="text">
+                            <a class="main_text" href="">Юбки</a>
+                            <div class="second_text"></div>
+                        </div>
+                        <img class="picture" style=" margin: -42px 40px;" src="~/Pictures/NZoiFfE2qCw.jpg" />
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+
+                <div class="info">
+                    <div class="text">
+                        <a class="main_text">Верхняя одежда</a>
+                        <div class="second_text"></div>
+                    </div>
+                </div>
+                <div class="back_pic" style="background: darkred">
+                    <img class="picture" style="margin: 37px 40px; height: 375px" src="~/Pictures/KSaJz8a8srI.jpg" />
+                </div>
+
+            </div>
+            <div class="item">
+                <div>
+                    <div class="frame">
+                        <div class="text">
+                            <a class="main_text" href="">Обувь</a>
+                            <div class="second_text"></div>
+                        </div>
+                        <img class="picture" style=" margin: -42px 40px;" src="~/Pictures/26wDcTeNN1A.jpg" />
+                    </div>
+                </div>
+            </div>
+        </div>
+   
+
+        <div class="slide">
+            <div class="item">
+                <div>
+                    <div class="frame">
+                        <div class="text">
+                            <a class="main_text" href="">Рубашки</a>
+                            <div class="second_text"></div>
+                        </div>
+                        <img class="picture" style=" margin: -42px 40px;" src="~/Pictures/nPANS2PH-og.jpg" />
+                    </div>
+                </div>
+            </div>
+            
+            <div class="item">
+
+                <div class="info">
+                    <div class="text">
+                        <a class="main_text" href="">Костюмы</a>
+                        <div class="second_text"></div>
+                    </div>
+                </div>
+                <div class="back_pic" style="background: darkred">
+                    <img class="picture" style="margin: 37px 40px" src="~/Pictures/nBVcbTJSQRI.jpg" />
+                </div>
+
+            </div>
+            <div class="item">
+                <div>
+                    <div class="frame">
+                        <div class="text">
+                            <a class="main_text" href="">Обувь</a>
+                            <div class="second_text"></div>
+                        </div>
+                        <img class="picture" style=" margin: -42px 40px;" src="~/Pictures/ouu0h-yJUQI.jpg" />
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+
+                <div class="info">
+                    <div class="text">
+                        <a class="main_text" href="">Верхняя одежда</a>
+                        <div class="second_text"></div>
+                    </div>
+                </div>
+                <div class="back_pic" style="background: darkred">
+                    <img class="picture" style="margin: 37px 40px; height: 375px" src="~/Pictures/MOWcEGk9jTg.jpg" />
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

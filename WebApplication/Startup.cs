@@ -23,6 +23,7 @@ namespace WebApplication
                  options.ModelBindingMessageProvider.SetValueMustNotBeNullAccessor(
                      _ => "The field is required.");
              });
+             
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();
         }
 
@@ -33,7 +34,8 @@ namespace WebApplication
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
             app.UseRouting();
             app.UseAuthorization();
             app.UseAuthentication();

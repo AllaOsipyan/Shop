@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using WebApplication.Models;
 using WebApplication.ViewModels;
 
@@ -36,7 +37,6 @@ namespace WebApplication.Controllers
             string existingPassword = null;
             
            
-
             if (!ModelState.IsValid)
                 ViewBag.Error = "Поле обязательно для заполнения.";
             else
@@ -59,7 +59,7 @@ namespace WebApplication.Controllers
                     await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
                         new ClaimsPrincipal(userIdentity));
 
-                    return RedirectToAction("MainPage", "Home");
+                    return RedirectToAction("Index", "Home");
 
                 }
             }
@@ -79,7 +79,6 @@ namespace WebApplication.Controllers
         {
             var results = new List<ValidationResult>();
             var context = new ValidationContext(model);
-            var m = ModelState.IsValid;
             if (!Validator.TryValidateObject(model, context, results, true))
                 ViewBag.Error = results.Select(x=>x.ErrorMessage).First();
             else
@@ -98,12 +97,12 @@ namespace WebApplication.Controllers
                     await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
                         new ClaimsPrincipal(userIdentity));
 
-                    return RedirectToAction("MainPage", "Home");
+                    return RedirectToAction("Index", "Home");
 
                 }
             }
 
-            return View(model);
+            return View();
             
         }
        

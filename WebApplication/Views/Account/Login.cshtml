@@ -1,25 +1,27 @@
-﻿
-<link href="@Url.Content("~/Views/Account/login.css")" rel="stylesheet" type="text/css" />
-<div>
-    Current user: <span>@ViewContext.HttpContext.User.Identity.Name </span>
-</div>
-<a href="Registration">Регистрация</a>
-<form  method="post">
-    <table>
-        <tr>
-            <td>
-                UserName
-            </td>
-            <td>
-                <input  type="text" name="userName" required/>
-            </td>
-        </tr>
-        <tr>
-            <td>Password</td>
-            <td><input type="password" name="password" required/></td>
-        </tr>
-    </table>
-    <div><input type="submit" value="Войти"/></div>
-    <div>@ViewBag.Error</div>
+﻿<head>
+     <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/logincss.css")"/>
+</head>
+<body> 
+    <div class="back"><div class="main_text">Вход</div>
+        @using (Html.BeginForm("Login", "Account"))
+        {
+           
+        
+        <form method="post">
+            
+            <div>
+            <label>Введите имя пользователя</label><br />
+            <input type="text" name="userName" required />
+                </div>
+            <div>
+                <label>Введите пароль</label><br />
+                <input type="password" name="password" required />
+            </div>
+            <div><input type="submit" value="Войти" /></div>
+            <div class="error">@ViewBag.Error</div>
 
-</form>
+        </form>
+        }
+        <a href="@Url.Content("~/Account/Registration")">Регистрация</a>
+    </div>
+</body>
