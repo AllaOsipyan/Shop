@@ -16,4 +16,9 @@
       <None Include="Views\Shared\_Layout.cshtml" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="NLog" Version="4.7.0" />
+      <PackageReference Include="NLog.Config" Version="4.7.0" />
+    </ItemGroup>
+
 </Project>

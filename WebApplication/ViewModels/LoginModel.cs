@@ -4,7 +4,7 @@ namespace WebApplication.ViewModels
 {
     public class LoginModel
     {
-        [Required(ErrorMessage = "Не указано имя потзователя")]
+        [Required(ErrorMessage = "Не указано имя пользователя")]
         public string userName { get; set; }
         
          
