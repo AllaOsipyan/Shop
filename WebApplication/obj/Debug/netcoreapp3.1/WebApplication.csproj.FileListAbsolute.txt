@@ -9,7 +9,6 @@ C:\Users\odint\RiderProjects\WebApplication\WebApplication\bin\Debug\netcoreapp3
 C:\Users\odint\RiderProjects\WebApplication\WebApplication\bin\Debug\netcoreapp3.1\WebApplication.pdb
 C:\Users\odint\RiderProjects\WebApplication\WebApplication\bin\Debug\netcoreapp3.1\WebApplication.Views.dll
 C:\Users\odint\RiderProjects\WebApplication\WebApplication\bin\Debug\netcoreapp3.1\WebApplication.Views.pdb
-C:\Users\odint\RiderProjects\WebApplication\WebApplication\obj\Debug\netcoreapp3.1\WebApplication.csprojAssemblyReference.cache
 C:\Users\odint\RiderProjects\WebApplication\WebApplication\obj\Debug\netcoreapp3.1\WebApplication.RazorAssemblyInfo.cache
 C:\Users\odint\RiderProjects\WebApplication\WebApplication\obj\Debug\netcoreapp3.1\WebApplication.RazorAssemblyInfo.cs
 C:\Users\odint\RiderProjects\WebApplication\WebApplication\obj\Debug\netcoreapp3.1\WebApplication.AssemblyInfoInputs.cache
@@ -87,3 +86,4 @@ C:\Users\odint\RiderProjects\WebApplication\WebApplication\bin\Debug\netcoreapp3
 C:\Users\odint\RiderProjects\WebApplication\WebApplication\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\e_sqlite3.dll
 C:\Users\odint\RiderProjects\WebApplication\WebApplication\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\e_sqlite3.dll
 C:\Users\odint\RiderProjects\WebApplication\WebApplication\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\e_sqlite3.dll
+C:\Users\odint\RiderProjects\WebApplication\WebApplication\obj\Debug\netcoreapp3.1\WebApplication.csprojAssemblyReference.cache
