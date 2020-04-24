@@ -9,6 +9,7 @@
                 
             <div>
                 <label>Введите имя пользователя</label><br />
+                <span class="info_text">Имя пользователя должно включать от 5 до 50 символов. Имя регистрозависимо.</span>
                 <div class="error">
                     @Html.ValidationMessageFor(model => model.userName)
                 </div>
@@ -18,6 +19,7 @@
             </div>
                 <div>
                     <label>Введите пароль</label><br />
+                    <span class="info_text">Пароль должен включать от 8 до 50 символов. Пароль регистрозависим.</span>
                     <div class="error">
                         @Html.ValidationMessageFor(model => model.password)
                     </div>

@@ -65,7 +65,7 @@ namespace WebApplication.Controllers
                         if (string.Compare(existingPassword, model.password, false, CultureInfo.InvariantCulture) != 0)
                         {
                             ViewBag.Error = "Неправильный пароль";
-                            logger.Info("Неправильный пароль");
+                            logger.Info(getLogInfo(HttpContext) + model.userName + ": Неправильный пароль");
                         }
                         else
                         {
