@@ -7,6 +7,7 @@ namespace WebApplication.Controllers
     public class HomeController: Controller
 
     {
+        
      /*   public IActionResult MainPage()
         {
             return View();
